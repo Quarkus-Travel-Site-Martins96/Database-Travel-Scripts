@@ -1,0 +1,18 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: "travelsite-db" 
+spec:
+  runPolicy: "Serial"
+  source: 
+    git:
+      uri: "https://github.com/Quarkus-Travel-Site-Martins96/Database-Travel-Scripts"
+  strategy: 
+    sourceStrategy:
+      from:
+        kind: "ImageStreamTag"
+        name: "docker.io/mysql:8.0"
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "travelsite-db:latest"

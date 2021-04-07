@@ -8,6 +8,4 @@ RUN	mkdir /usr/sql
 RUN	chmod 644 /usr/sql
 ADD ["mysql-db-script.sql", "/usr/sql/sources.sql"]
 
-RUN /etc/init.d/mysql start
-
 EXPOSE 3306
