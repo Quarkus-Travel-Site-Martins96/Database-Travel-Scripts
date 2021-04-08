@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: "travelsite-db" 
+  name: "travelsite-mysql-db" 
 spec:
   runPolicy: "Serial"
   source:
@@ -18,4 +18,4 @@ spec:
   output:
     to:
       kind: "ImageStreamTag"
-      name: "travelsite-db:latest"
+      name: "travelsite-mysql-db:latest"
