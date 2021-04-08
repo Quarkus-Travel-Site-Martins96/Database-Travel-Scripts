@@ -4,15 +4,18 @@ metadata:
   name: "travelsite-db" 
 spec:
   runPolicy: "Serial"
-  source: 
+  source:
     git:
-      uri: "https://github.com/Quarkus-Travel-Site-Martins96/Database-Travel-Scripts"
-  strategy: 
-    sourceStrategy:
-      from:
-        kind: "ImageStreamTag"
-        name: "docker.io/mysql:8.0"
-  output: 
+      uri: https://github.com/Quarkus-Travel-Site-Martins96/Database-Travel-Scripts
+    contextDir: .
+    configMaps:
+    - configMap:
+        name: mysql-db-script.sql
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: "."
+  output:
     to:
       kind: "ImageStreamTag"
       name: "travelsite-db:latest"
