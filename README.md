@@ -43,3 +43,26 @@ Expose in a route the service with:
 ```shell script
 oc expose service/travelsite-db
 ```
+
+##Access
+You can access to container using browser console and navigate to pod Terminal.
+
+Of you want use local client, you need to port forward the pod using:
+
+```shell script
+oc port-forward #pod_name# :3306
+```
+
+for example: oc port-forward travelsite-db-6f8bf4b766-9rt6v :3306
+This will create a new port _(i.e. 56218)_ that you can use for access to pod
+
+Output example:
+
+```
+$ oc port-forward travelsite-db-6f8bf4b766-9rt6v :3306
+Forwarding from 127.0.0.1:56218 -> 3306
+Forwarding from [::1]:56218 -> 3306
+Handling connection for 56218
+```
+
+
