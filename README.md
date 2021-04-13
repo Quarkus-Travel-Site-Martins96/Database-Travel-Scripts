@@ -8,7 +8,7 @@ The applications are already configured for MySQL DB
 In order to build database container (mySQL) prepare the init script configmap:
 
 ```shell script
-oc create configmap mysql-db-script --from-file=mysql-db-script.sql
+oc create configmap mysql-db-script.sql --from-file=mysql-db-script.sql
 ```
 Now on your Openshift project you will have a new ConfigMap usable on build.
 
