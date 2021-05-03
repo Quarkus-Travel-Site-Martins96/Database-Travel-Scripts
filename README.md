@@ -65,4 +65,39 @@ Forwarding from [::1]:56218 -> 3306
 Handling connection for 56218
 ```
 
+## Building from external registry
 
+###Build image and push
+
+Using _hub.docker.com_, build localy the image using docker client
+
+
+```shell script
+docker build -t travelsite-mysql-db .
+```
+
+Login into docker hub (or your registry site, e.g. quay.io)
+
+```shell script
+docker login -u username -p Your-app-generared-password
+```
+
+Tag image 
+
+```shell script
+docker tag travelsite-mysql-db username/travelsite-db
+```
+
+Push image
+
+```shell script
+docker push username/travelsite-db
+```
+
+After login in Openshift via OC cli, create a new app using the docker image
+
+```shell script
+oc new-app --as-deployment-config -lapp=database --docker-image username/travelsite-db
+```
+
+Your DB is up and running
