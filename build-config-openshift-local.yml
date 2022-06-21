@@ -1,0 +1,23 @@
+#This script load Dockerfile from local file system instead of take it from Git repo
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: "travelsite-mysql-db" 
+spec:
+  runPolicy: "Serial"
+  source:
+    type: Binary
+    binary:
+      asFile: "Dockerfile"
+    contextDir: .
+    configMaps:
+    - configMap:
+        name: mysql-db-script.sql
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: "."
+  output:
+    to:
+      kind: "ImageStreamTag"
+      name: "travelsite-mysql-db:latest"
