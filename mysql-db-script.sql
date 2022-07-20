@@ -219,8 +219,8 @@ CREATE TABLE IF NOT EXISTS `user_credentials` (
 
 -- Dump dei dati della tabella travel_site.user_credentials: ~2 rows (circa)
 INSERT INTO `user_credentials` (`USERNAME`, `PASSWORD`, `PENDING`, `TMP_TOKEN`, `TMP_EMAIL`) VALUES
-	('admin', 'secret1', 'N', NULL, NULL),
-	('luca', 'secret1', 'N', NULL, NULL);
+	('admin', '08f002d5213c7ef299bccb07f9829e909ed3915949c98aac7b30e731c8b57a17', 'N', NULL, NULL),
+	('luca', '08f002d5213c7ef299bccb07f9829e909ed3915949c98aac7b30e731c8b57a17', 'N', NULL, NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
